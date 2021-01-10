@@ -38,7 +38,9 @@ for i in range(iterations):
         params['max_depth'] = np.random.randint(5, 200)
         iterations = np.random.randint(10, 10000)
         print(params, iterations)#Train using selected parameters
-clf = lgb.train(params, d_train, iterations)y_pred=clf.predict(x_test) #Create predictions on test setmae=mean_absolute_error(y_pred,y_test)
+        clf = lgb.train(params, d_train, iterations)
+        y_pred=clf.predict(x_test) #Create predictions on test set
+        mae=mean_absolute_error(y_pred,y_test)
         print('MAE:', mae)
         if mae < min:
             min = mae
